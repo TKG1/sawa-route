@@ -40,3 +40,9 @@ README 〜　ER図の作成：2/28〆切
 メイン機能実装：3/1 〜 3/21
 β版をRUNTEQ内リリース（MVP）：3/21〆切
 本番リリース：4/1
+
+# 画面遷移図
+https://www.figma.com/file/0WYYvV6ieTBIqxrKTTCnv9/%E6%B2%A2%E7%99%BB%E3%82%8A?node-id=0%3A1
+
+# ER図
+https://drive.google.com/file/d/1MkZwRFpgUuK0bhSQZtCpI2ib2jWlHD2H/view?usp=sharing
