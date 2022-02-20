@@ -7,8 +7,8 @@ import Rails from '@rails/ujs';
 import * as ActiveStorage from '@rails/activestorage';
 import 'channels';
 
-import 'jquery';
 import 'bootstrap';
+import 'bootstrap/scss/bootstrap.scss';
 
 Rails.start();
 ActiveStorage.start();
