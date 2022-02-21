@@ -1,19 +1,21 @@
-inherit_from: .rubocop_todo.yml
+inherit_from:
+  - .rubocop_todo.yml
+  - node_modules/@prettier/plugin-ruby/rubocop.yml
 
 require:
   - rubocop-rails
 
 AllCops:
   Exclude:
-    - "vendor/**/*"
-    - "db/**/*"
-    - "bin/**/*"
-    - "lib/**/*"
-    - "spec/**/*"
-    - "config/**/*"
-    - "app/validators/attachment_validator.rb"
-    - "node_modules/**/*"
-    - "Gemfile"
+    - 'vendor/**/*'
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'lib/**/*'
+    - 'spec/**/*'
+    - 'config/**/*'
+    - 'app/validators/attachment_validator.rb'
+    - 'node_modules/**/*'
+    - 'Gemfile'
   DisplayCopNames: true
 
 Rails:
@@ -38,7 +40,7 @@ Metrics/MethodLength:
 
 Naming/AccessorMethodName:
   Exclude:
-    - "app/controllers/**/*"
+    - 'app/controllers/**/*'
 
 Style/AsciiComments:
   Enabled: false
@@ -60,3 +62,7 @@ Style/WhileUntilModifier:
 
 Rails/HasManyOrHasOneDependent:
   Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'

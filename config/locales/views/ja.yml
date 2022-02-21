@@ -1,0 +1,12 @@
+ja:
+  users:
+    new:
+      title: ユーザー登録
+  user_sessions:
+    new:
+      title: ログイン
+  sample:
+    index:
+    show:
+    new:
+    edit:

@@ -1,0 +1,10 @@
+ja:
+  users:
+    create:
+      success: ユーザーを登録しました
+  user_sessions:
+    create:
+      success: ログインしました
+      failed: ログインに失敗しました
+    destroy:
+      success: ログアウトしました

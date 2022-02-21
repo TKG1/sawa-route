@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html class="h-100">
+  <head>
+    <title>SawaRoute</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
-<head>
-  <title>SawaRoute</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+  </head>
 
-  <%= stylesheet_link_tag "application", media: "all" %>
-  <%= javascript_pack_tag "application" %>
-</head>
-
-<body class="d-flex flex-column h-100">
-  <%= render "shared/before_login_header" %>
-  <div class="container">
-    <%= yield %>
-  </div>
-  <%= render "shared/footer" %>
-</body>
-
+  <body class="d-flex flex-column h-100">
+    <% if logged_in? %>
+      <%= render 'shared/after_login_header' %>
+    <% else %>
+      <%= render 'shared/before_login_header' %>
+    <% end %>
+    <%= render 'shared/flash_message' if flash %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'shared/footer' %>
+  </body>
 </html>
