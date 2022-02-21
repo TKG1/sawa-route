@@ -1,0 +1,6 @@
+ja:
+  defaults:
+    sign_up: ユーザー登録
+    register: 登録
+    login: ログイン
+    logout: ログアウト

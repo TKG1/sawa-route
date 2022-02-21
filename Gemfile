@@ -49,6 +49,7 @@ group :development do
 
   gem 'better_errors'
   gem 'binding_of_caller'
+
   # analysis
   gem 'rubocop', '~> 1.25', require: false
   gem 'rubocop-rails', require: false
@@ -56,6 +57,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -63,5 +65,17 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # error: cannot load such file -- net/smtp
 gem 'net-smtp', require: false
-gem 'rufo'
+
+# OAuth
+# gem 'omniauth', '~> 2.0'
+# gem 'omniauth-google-oauth2', '~> 1.0'
+# gem 'omniauth-rails_csrf_protection', '~> 1.0'
+
+# icon
 gem 'font-awesome-sass', '~> 5.15.1'
+
+# I18n
+gem 'rails-i18n', '~> 6.0'
+
+# Login
+gem 'sorcery'

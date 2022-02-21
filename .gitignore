@@ -48,3 +48,6 @@ pickle-email-*.html
 yarn-debug.log*
 .yarn-integrity
 .rubocop_todo.yml
+
+/config/credentials/development.key
+/config/initializers/omniauth.rb
