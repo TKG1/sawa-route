@@ -1,4 +1,4 @@
-<h1>ユーザー登録</h1>
+<h1><%= t('.title') %></h1>
 <%= form_with model: @user, local: true do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="form-group">
@@ -19,8 +19,3 @@
   </div>
   <%= f.submit t('defaults.register'), class: 'btn btn-primary mt-2' %>
 <% end %>
-
-<div class="text-center">
-  <%= link_to 'ログインページへ', login_path %> /
-  <%= link_to 'Back', root_path %>
-</div>

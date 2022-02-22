@@ -5,6 +5,11 @@ ja:
   user_sessions:
     new:
       title: ログイン
+  profiles:
+    show:
+      title: プロフィール
+    edit:
+      title: プロフィール編集
   sample:
     index:
     show:
