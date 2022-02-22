@@ -79,3 +79,7 @@ gem 'rails-i18n', '~> 6.0'
 
 # Login
 gem 'sorcery'
+
+# ImageUploader
+gem 'carrierwave', '~> 2.0'
+gem 'mini_magick' # ImageMagic 7.1.0

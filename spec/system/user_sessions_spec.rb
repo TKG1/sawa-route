@@ -6,8 +6,8 @@ RSpec.describe 'UserSessions', type: :system do
   describe 'before login' do
     before { visit login_path }
 
-    context 'when the form input values are nomal' do
-      it 'should succeed to login as a user' do
+    context 'with a email, password' do
+      it 'logins as a user' do
         within('form#login') do
           fill_in 'email', with: user.email
           fill_in 'password', with: 'password'
@@ -18,8 +18,8 @@ RSpec.describe 'UserSessions', type: :system do
       end
     end
 
-    context 'when the email in the form input value is empty' do
-      it 'should fail to login as a user' do
+    context 'without a email' do
+      it 'fails to login as a user' do
         within('form#login') do
           fill_in 'email', with: user.email
           fill_in 'password', with: ''
@@ -34,13 +34,11 @@ RSpec.describe 'UserSessions', type: :system do
   describe 'after login' do
     before { login_as(user) }
 
-    context 'when click the logout button' do
-      it 'should succeed to logout' do
-        click_link 'dropdownUser1'
-        click_link 'ログアウト'
-        expect(page).to have_content 'ログアウトしました'
-        expect(current_path).to eq root_path
-      end
+    it 'logouts' do
+      find('#dropdown-menu').click
+      click_link('ログアウト')
+      expect(page).to have_content 'ログアウトしました'
+      expect(current_path).to eq root_path
     end
   end
 end

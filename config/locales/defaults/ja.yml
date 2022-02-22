@@ -1,6 +1,8 @@
 ja:
   defaults:
-    sign_up: ユーザー登録
-    register: 登録
     login: ログイン
     logout: ログアウト
+    profile: プロフィール
+    register: 登録
+    sign_up: ユーザー登録
+    update: 更新

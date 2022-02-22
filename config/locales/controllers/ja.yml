@@ -8,3 +8,6 @@ ja:
       failed: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  profiles:
+    update:
+      success: プロフィールを更新しました

@@ -9,12 +9,12 @@
         <li><%= link_to 'ルート一覧', '#', class: 'nav-link px-2 link-dark' %></li>
       </ul>
 
-      <div class="dropdown text-end">
+      <div class="dropdown text-end" id="dropdown-menu">
         <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle" />
+          <%= image_tag current_user.avatar_url, size: '32x32', class: 'rounded-circle border' %>
         </a>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-          <li><%= link_to 'プロフィール', '#', class: 'dropdown-item' %></li>
+          <li><%= link_to t('defaults.profile'), profiles_path, class: 'dropdown-item' %></li>
           <li>
             <hr class="dropdown-divider" />
           </li>

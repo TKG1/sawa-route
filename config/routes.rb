@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :users, only: %i[new create]
+  resource :profiles, only: %i[show edit update]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => "user_sessions#create"
