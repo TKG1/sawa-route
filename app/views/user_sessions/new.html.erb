@@ -12,6 +12,15 @@
     <%= f.submit t('defaults.login'), class: 'btn btn-primary mt-2' %>
   </div>
 <% end %>
+
+<p class="or my-4 mt-5 mb-5">もしくは</p>
+
 <div class="text-center">
+  <%= link_to auth_at_provider_path(:provider => :google), method: :post, class: 'btn btn-danger' do %>
+    <%= icon('fab', 'google') %> Googleアカウントで登録・ログイン
+  <% end %>
+</div>
+
+<div class="text-center mt-5">
   <%= link_to 'パスワードをお忘れの方はこちら', '#' %>
 </div>

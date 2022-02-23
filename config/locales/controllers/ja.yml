@@ -5,9 +5,13 @@ ja:
   user_sessions:
     create:
       success: ログインしました
-      failed: ログインに失敗しました
+      fail: ログインに失敗しました
     destroy:
       success: ログアウトしました
+  oauths:
+    callback:
+      success: '%{provider}アカウントでログインしました'
+      fail: '%{provider}アカウントのログインに失敗しました'
   profiles:
     update:
       success: プロフィールを更新しました
