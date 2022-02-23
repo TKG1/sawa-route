@@ -36,6 +36,7 @@ pickle-email-*.html
 !/storage/.keep
 
 /public/assets
+/public/uploads
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
@@ -50,4 +51,3 @@ yarn-debug.log*
 .rubocop_todo.yml
 
 /config/credentials/development.key
-/config/initializers/omniauth.rb

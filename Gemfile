@@ -69,7 +69,7 @@ gem 'net-smtp', require: false
 # OAuth
 # gem 'omniauth', '~> 2.0'
 # gem 'omniauth-google-oauth2', '~> 1.0'
-# gem 'omniauth-rails_csrf_protection', '~> 1.0'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 
 # icon
 gem 'font-awesome-sass', '~> 5.15.1'

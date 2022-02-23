@@ -1,0 +1,13 @@
+.or {
+	display: flex;
+	align-items: center;
+	color: #ccc;
+	&::after, &::before {
+		flex-grow: 1;
+		margin-right: 30px;
+		margin-left: 30px;
+		content: '';
+		border-top: 1px solid #ccc;
+		box-sizing: border-box;
+	}
+}
