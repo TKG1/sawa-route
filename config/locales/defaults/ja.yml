@@ -2,6 +2,7 @@ ja:
   defaults:
     login: ログイン
     logout: ログアウト
+    map: マップ
     profile: プロフィール
     register: 登録
     sign_up: ユーザー登録

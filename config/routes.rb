@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resource :profiles, only: %i[show edit update]
 
   get 'login' => 'user_sessions#new', :as => :login
-  post 'login' => "user_sessions#create"
+  post 'login' => 'user_sessions#create'
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
-  get "oauth/callback" => "oauths#callback"
-  post "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  get 'oauth/callback' => 'oauths#callback'
+  post 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
+
+  get 'maps' => 'maps#index'
 end

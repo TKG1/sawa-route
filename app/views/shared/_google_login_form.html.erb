@@ -1,0 +1,7 @@
+<p class="or my-4 mt-5 mb-5">もしくは</p>
+
+<div class="text-center mb-3">
+  <%= link_to auth_at_provider_path(:provider => :google), method: :post, class: 'w-100 btn btn-danger' do %>
+    <%= icon('fab', 'google') %> Googleアカウントで登録・ログイン
+  <% end %>
+</div>
