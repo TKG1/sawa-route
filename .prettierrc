@@ -3,5 +3,22 @@
   "useTabs": false,
   "singleQuote": true,
   "rubySingleQuote": true,
-  "printWidth": 300
+  "printWidth": 100,
+
+  "semi": false,
+  "overrides": [
+    {
+      "files": ["*.html"],
+      "options": {
+        "printWidth": 300
+      }
+    },
+
+    {
+      "files": ["*.html.erb"],
+      "options": {
+        "printWidth": 300
+      }
+    }
+  ]
 }
