@@ -1,26 +1,28 @@
-<div class="row">
-  <div class="col border border-bottom-0 text-center">
-    <strong class="mt-1"><%= t('.title') %></strong>
-  </div>
-</div>
-
-<div class="row border mb-4">
-  <div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-success p-0 m-3">
-      <%= link_to t('profiles.edit.title'), edit_profiles_path, class: 'link-dark p-2' %>
-    </button>
-  </div>
-  <div class="col-6">
-    <%= image_tag current_user.avatar_url, size: '480x480', class: 'rounded-circle img-thumbnail ms-5 mb-5' %>
-  </div>
-  <div class="col-6 align-self-center">
-    <div>
-      <p><%= User.human_attribute_name('name') %></p>
-      <p class="lead"><%= current_user.name %></p>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col border border-bottom-0 text-center">
+      <strong class="mt-1"><%= t('.title') %></strong>
     </div>
-    <div>
-      <p><%= User.human_attribute_name('email') %></p>
-      <p class="lead"><%= current_user.email %></p>
+  </div>
+
+  <div class="row border mb-4">
+    <div class="d-flex justify-content-end">
+      <button type="button" class="btn btn-success p-0 m-3">
+        <%= link_to t('profiles.edit.title'), edit_profiles_path, class: 'link-dark p-2' %>
+      </button>
+    </div>
+    <div class="col-6">
+      <%= image_tag current_user.avatar_url, size: '480x480', class: 'rounded-circle img-thumbnail ms-5 mb-5' %>
+    </div>
+    <div class="col-6 align-self-center">
+      <div>
+        <p><%= User.human_attribute_name('name') %></p>
+        <p class="lead"><%= current_user.name %></p>
+      </div>
+      <div>
+        <p><%= User.human_attribute_name('email') %></p>
+        <p class="lead"><%= current_user.email %></p>
+      </div>
     </div>
   </div>
 </div>

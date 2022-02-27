@@ -8,6 +8,8 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
+    <%= Gon::Base.render_data %>
   </head>
 
   <body class="d-flex flex-column h-100">
@@ -17,9 +19,9 @@
       <%= render 'shared/before_login_header' %>
     <% end %>
     <%= render 'shared/flash_message' if flash %>
-    <div class="container-fluid p-0">
-      <%= yield %>
-    </div>
+
+    <%= yield %>
+
     <%= render 'shared/footer' %>
   </body>
 </html>
