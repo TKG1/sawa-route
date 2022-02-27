@@ -1,0 +1,80 @@
+<div class="container">
+  <%= image_tag @route.mountain.image_url, height: 300, class: 'w-100 mb-5' %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1><%= @route.name %></h1>
+      <ul class="list-inline mt-3 mb-0">
+        <li class="list-inline-item">
+          <%= icon('fas', 'map-marked-alt') %>
+          <%= @route.mountain.prefecture.name %>
+        </li>
+        <li class="list-inline-item">
+          <%= icon('fas', 'mountain') %>
+          <%= @route.mountain.name %>
+        </li>
+      </ul>
+      <p class="mt-3"><%= @route.description %></p>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row service-parts">
+        <div class="col-md-6">
+          <div class="text-center mb-4">
+            <%= icon('far', 'clock', class: 'fs-1 m-4') %>
+            <h5>時間</h5>
+            <h3><%= @route.time %></h3>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-center mb-4">
+            <%= icon('far', 'calendar-alt', class: 'fs-1 m-4') %>
+            <h5>予定</h5>
+            <h3><%= @route.schedule %></h3>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-center">
+            <%= icon('fas', 'hiking', class: 'fs-1 m-4') %>
+            <h5>距離</h5>
+            <h3><%= @route.length %>km</h3>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="text-center">
+            <%= icon('fas', 'exclamation-triangle', class: 'fs-1 m-4') %>
+            <h5>レベル</h5>
+            <h3><%= @route.level %></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="d-flex flex-row-reverse">
+        <%= link_to map_path(@route.map), class: 'map-image', id: 'map' do %>
+          <%= image_tag 'https://api.mapbox.com/styles/v1/koheikun/cl03dh6ab002i14p5ns80x3fn/static/136.71655,35.76698,12/500x300?access_token=pk.eyJ1Ijoia29oZWlrdW4iLCJhIjoiY2t6cDdjMTkzNjZpcTJwdHYxbXAxZnl6ayJ9.RaX5Zwhx-cWf_73LpdeliA', class: 'img-responsive img-thumbnail' %>
+          <p class="btn btn-success">Full Mapで開く</p>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-md-6 mt-5">
+      <%= render 'tab' %>
+    </div>
+
+    <div class="col-md-6 mb-5">
+      <div class="d-flex flex-column align-items-end">
+        <h2>PickUp</h2>
+        <blockquote data-yamap-widget data-source="activities/11650014" data-mode="photo" data-width="510px">
+          <a href="https://yamap.com/activities/11650014">奥美濃　銚子洞</a> / <a href="https://yamap.com/users/110610">おりえ</a>さんの活動データ | <a href="https://yamap.com">YAMAP / ヤマップ</a>
+        </blockquote>
+        <a href="https://yamap.com/search/activities?type=31&keyword=%E5%B7%9D%E6%B5%A6%E8%B0%B7" class="btn btn-danger" style="width: 510px;">YAMAPで他の活動日を調べる</a>
+      </div>
+
+      <script src="https://yamap.com/widget.js"></script>
+    </div>
+  </div>
+</div>

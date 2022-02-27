@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resource :profiles, only: %i[show edit update]
+  resources :routes, only: %i[index show]
+  resources :maps, only: %i[index show]
 
   get 'login' => 'user_sessions#new', :as => :login
   post 'login' => 'user_sessions#create'
@@ -12,5 +14,4 @@ Rails.application.routes.draw do
   get 'oauth/callback' => 'oauths#callback'
   post 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
 
-  get 'maps' => 'maps#index'
 end

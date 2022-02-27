@@ -4,4 +4,5 @@ config/*
 spec/rails_helper.rb
 spec/spec_helper.rb
 spec/support/capybara.rb
+spec/factories
 db

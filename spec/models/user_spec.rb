@@ -4,7 +4,6 @@ RSpec.describe User, type: :model do
   describe 'validation' do
     it 'is valid with all attributes' do
       user = build(:user)
-      user.valid?
       expect(user).to be_valid
       expect(user.errors).to be_empty
     end
@@ -37,7 +36,6 @@ RSpec.describe User, type: :model do
 
     it 'is invalid without a password' do
       user_without_password = build(:user, password: '')
-      user_without_password.valid?
       expect(user_without_password).to be_invalid
       expect(user_without_password.errors[:password]).to include('は3文字以上で入力してください')
     end
@@ -45,7 +43,9 @@ RSpec.describe User, type: :model do
     it 'is invalid without a password_confirmation' do
       user_without_password_confirmation = build(:user, password_confirmation: '')
       expect(user_without_password_confirmation).to be_invalid
-      expect(user_without_password_confirmation.errors[:password_confirmation]).to include('を入力してください')
+      expect(user_without_password_confirmation.errors[:password_confirmation]).to include(
+        'を入力してください'
+      )
     end
 
     it 'is invalid with a duplicate name' do
@@ -63,9 +63,12 @@ RSpec.describe User, type: :model do
     end
 
     it 'is invalid with not same a password & password_confirmation' do
-      user_with_not_same_password = build(:user, password: 'password', password_confirmation: 'password123456')
+      user_with_not_same_password =
+        build(:user, password: 'password', password_confirmation: 'password123456')
       expect(user_with_not_same_password).to be_invalid
-      expect(user_with_not_same_password.errors[:password_confirmation]).to include('とパスワードの入力が一致しません')
+      expect(user_with_not_same_password.errors[:password_confirmation]).to include(
+        'とパスワードの入力が一致しません'
+      )
     end
   end
 end
