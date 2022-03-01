@@ -90,3 +90,6 @@ gem 'seed-fu'
 
 # Gon
 gem 'gon', '~> 6.2'
+
+# Admin
+gem 'activeadmin'

@@ -16,10 +16,4 @@ class UserSessionsController < ApplicationController
     logout
     redirect_to root_path, success: t('.success')
   end
-
-  private
-
-  def require_logout
-    redirect_to
-  end
 end

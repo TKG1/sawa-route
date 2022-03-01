@@ -3,7 +3,7 @@
     <% if @routes.present? %>
       <%= render @routes %>
     <% else %>
-      <p>ルート情報がありません</p>
+      <p><%= t('.no_routes') %></p>
     <% end %>
   </div>
 </div>

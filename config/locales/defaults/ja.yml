@@ -7,3 +7,5 @@ ja:
     register: 登録
     sign_up: ユーザー登録
     update: 更新
+    no_authority: 権限がありません
+    require_login: ログインをしてください

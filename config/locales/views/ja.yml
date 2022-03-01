@@ -10,6 +10,11 @@ ja:
       title: プロフィール
     edit:
       title: プロフィール編集
+  routes:
+    index:
+      no_routes: ルート情報がありません
+    show:
+      full_map: 拡大マップを開く
   sample:
     index:
     show:

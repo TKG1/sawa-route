@@ -15,3 +15,40 @@ ja:
   profiles:
     update:
       success: プロフィールを更新しました
+
+  admin:
+    users:
+      create:
+        success: ユーザーを登録しました
+      update:
+        success: ユーザーを更新しました
+      destroy:
+        success: ユーザーを削除しました
+    routes:
+      create:
+        success: ルートを登録しました
+      update:
+        success: ルートを更新しました
+      destroy:
+        success: ルートを削除しました
+    maps:
+      create:
+        success: マップを登録しました
+      update:
+        success: マップを更新しました
+      destroy:
+        success: マップを削除しました
+    mountains:
+      create:
+        success: 山を登録しました
+      update:
+        success: 山を更新しました
+      destroy:
+        success: 山を削除しました
+    prefectures:
+      create:
+        success: 都道府県を登録しました
+      update:
+        success: 都道府県を更新しました
+      destroy:
+        success: 都道府県を削除しました
