@@ -1,0 +1,12 @@
+$('#error_messages').remove()
+<% if @comment.errors.present? %>
+  $('#js-comment-form').prepend("<%= j(render('shared/error_messages', object: @comment)) %>")
+<% else %>
+  if ($('#js-no-comment').length !== 0) {
+    $('#js-no-comment').replaceWith("<%= j(render('comments/comments', comments: @comment)) %>")
+  } else {
+    $('#js-comment-list').append("<%= j(render('comments/comment', comment: @comment)) %>")
+  }
+  $('#js-comment-text').val('')
+  $('#js-close-modal').trigger('click');
+<% end %>

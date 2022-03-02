@@ -9,5 +9,9 @@ FactoryBot.define do
     trait :admin do
       role { 1 }
     end
+
+    trait :avatar do
+      avatar { Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/avatar.png')) }
+    end
   end
 end

@@ -1,7 +1,10 @@
-<p class="or my-4 mt-5 mb-5">もしくは</p>
+<p class="or mt-3 mb-4">
+  <%= t('.else') %>
+</p>
 
-<div class="text-center mb-3">
+<div class="text-center">
   <%= link_to auth_at_provider_path(:provider => :google), method: :post, class: 'w-100 btn btn-danger' do %>
-    <%= icon('fab', 'google') %> Googleアカウントで登録・ログイン
+    <%= icon('fab', 'google', class: 'me-1') %>
+    <%= t('.login_google_account') %>
   <% end %>
 </div>

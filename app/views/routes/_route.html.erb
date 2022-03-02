@@ -3,34 +3,45 @@
     <div class="card shadow-sm">
       <%= image_tag route.mountain.image_url, height: 150, class: 'w-100 card-img-top' %>
       <div class="card-body">
-        <h3 class="card-title"><%= route.name %></h3>
+        <h3 class="card-title">
+          <%= route.name %>
+        </h3>
+
         <div class="d-flex">
-          <p class="card-text me-2"><%= route.mountain.prefecture.name %></p>
-          <p class="card-text"><%= route.mountain.name %></p>
+          <p class="card-text me-2">
+            <%= route.mountain.prefecture.name %>
+          </p>
+          <p class="card-text">
+            <%= route.mountain.name %>
+          </p>
         </div>
+
         <div class="d-flex align-items-center">
-          <div class="badge bg-secondary me-2"><%= route.level %></div>
+          <div class="badge bg-secondary me-2">
+            <%= route.level %>
+          </div>
           <div class="progress w-75">
             <% (route.level_before_type_cast + 1).times do %>
               <div class="progress-bar bg-info w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             <% end %>
           </div>
         </div>
+
         <ul class="list-inline mt-3 mb-0">
           <li class="list-inline-item">
-            <%= icon('far', 'calendar-alt') %>
+            <%= render 'icon', column: Route.human_attribute_name(:schedule) %>
             <%= route.schedule %>
           </li>
           <li class="list-inline-item">
-            <%= icon('far', 'clock') %>
+            <%= render 'icon', column: Route.human_attribute_name(:time) %>
             <%= route.time %>
           </li>
           <li class="list-inline-item">
-            <%= icon('fas', 'hiking') %>
+            <%= render 'icon', column: Route.human_attribute_name(:length) %>
             <%= route.length %>km
           </li>
         </ul>
       </div>
     </div>
   </div>
-<% end%>
+<% end %>

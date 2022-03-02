@@ -1,0 +1,8 @@
+$('#error_messages').remove()
+<% if @comment.errors.present? %>
+  $('#js-comment-form').prepend("<%= j(render('shared/error_messages', object: @comment)) %>")
+<% else %>
+  $('#comment-<%= @comment.id %>').replaceWith("<%= j(render('comments/comment', comment: @comment)) %>")
+  $('#js-comment-text').val('')
+  $('#js-close-modal').trigger('click');
+<% end %>

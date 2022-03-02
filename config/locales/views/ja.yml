@@ -2,9 +2,14 @@ ja:
   users:
     new:
       title: ユーザー登録
+    form:
+      create_account: 新規アカウントを登録する
   user_sessions:
     new:
       title: ログイン
+    form:
+      login_email: メールアドレスでログイン
+      forgot_password: パスワードを忘れた方はこちら
   profiles:
     show:
       title: プロフィール
@@ -15,6 +20,17 @@ ja:
       no_routes: ルート情報がありません
     show:
       full_map: 拡大マップを開く
+      search_yamap: YAMAPで活動日記を検索する
+    tab:
+      no_comment: コメントがありません
+      create_comment: コメントをする
+  comments:
+    form:
+      post_comment: コメントを投稿する
+  shared:
+    google_login_form:
+      else: もしくは
+      login_google_account: Googleアカウントで登録・ログイン
   sample:
     index:
     show:

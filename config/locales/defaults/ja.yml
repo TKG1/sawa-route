@@ -9,3 +9,12 @@ ja:
     update: 更新
     no_authority: 権限がありません
     require_login: ログインをしてください
+    post: 投稿
+    cancel: キャンセル
+    edit: 編集
+    destroy: 削除
+    delete_confirm: 本当に削除しますか?
+
+  time:
+    formats:
+      default: "%Y/%m/%d(%a) %H:%M"

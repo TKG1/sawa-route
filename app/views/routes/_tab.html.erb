@@ -1,13 +1,64 @@
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <button class="nav-link active text-dark" id="comment-tab" data-bs-toggle="tab" data-bs-target="#comment" type="button" role="tab" aria-controls="comment" aria-selected="true">コメント</button>
+    <button
+      class="nav-link active text-dark"
+      id="comment-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#js-comment"
+      type="button"
+      role="tab"
+      aria-controls="comment"
+      aria-selected="true"
+    >
+      <%= Comment.model_name.human %>
+    </button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link text-dark" id="picture-tab" data-bs-toggle="tab" data-bs-target="#picture" type="button" role="tab" aria-controls="picture" aria-selected="false">写真</button>
+    <button
+      class="nav-link text-dark"
+      id="picture-tab"
+      data-bs-toggle="tab"
+      data-bs-target="#picture"
+      type="button"
+      role="tab"
+      aria-controls="picture"
+      aria-selected="false"
+    >
+      写真
+    </button>
   </li>
 </ul>
 
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="comment" role="tabpanel" aria-labelledby="comment-tab">...</div>
+  <div class="tab-pane fade show active" id="js-comment" role="tabpanel" aria-labelledby="comment-tab">
+    <% if @comments.present? %>
+      <%= render 'comments/comments', comments: @comments %>
+    <% else %>
+      <p id="js-no-comment">
+        <%= t('.no_comment') %>
+      </p>
+    <% end %>
+
+    <%=
+      link_to t('.create_comment'),
+              new_route_comment_path(@route),
+              data: {
+                'bs-toggle': 'modal',
+                'bs-target': '#js-comment-form-modal',
+              },
+              class: 'btn btn-primary',
+              remote: true
+    %>
+
+    <div class="modal fade" id="js-comment-form-modal" data-bs-backdrop="static" data-bs-keyboard="false">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="container-fluid" id="js-comment-form"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="tab-pane fade" id="picture" role="tabpanel" aria-labelledby="picture-tab">...</div>
 </div>

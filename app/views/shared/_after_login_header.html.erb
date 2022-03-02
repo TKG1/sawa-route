@@ -10,14 +10,17 @@
       </ul>
 
       <div class="dropdown text-end" id="dropdown-menu">
-        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <%= link_to '#',
+                    class: "d-block link-dark text-decoration-none dropdown-toggle",
+                    id: "dropdownUser1",
+                    data: { 'bs-toggle':'dropdown' },
+                    aria: { 'expanded':'false' } do
+        %>
           <%= image_tag current_user.avatar_url, size: '32x32', class: 'rounded-circle border' %>
-        </a>
+        <% end %>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li><%= link_to t('defaults.profile'), profiles_path, class: 'dropdown-item' %></li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
+          <li><hr class="dropdown-divider" /></li>
           <li><%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'dropdown-item' %></li>
         </ul>
       </div>
