@@ -13,11 +13,8 @@
   </head>
 
   <body class="d-flex flex-column h-100">
-    <% if logged_in? %>
-      <%= render 'shared/after_login_header' %>
-    <% else %>
-      <%= render 'shared/before_login_header' %>
-    <% end %>
+    <%= logged_in? ? (render 'shared/after_login_header') : (render 'shared/before_login_header') %>
+
     <%= render 'shared/flash_message' if flash %>
 
     <%= yield %>

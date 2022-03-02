@@ -10,14 +10,14 @@
     {
       "files": ["*.html"],
       "options": {
-        "printWidth": 300
+        "printWidth": 150
       }
     },
 
     {
       "files": ["*.html.erb"],
       "options": {
-        "printWidth": 300
+        "printWidth": 150
       }
     }
   ]

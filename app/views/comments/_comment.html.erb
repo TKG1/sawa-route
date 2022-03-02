@@ -1,0 +1,44 @@
+<tr id="comment-<%= comment.id %>">
+  <th><%= image_tag comment.user.avatar_url, size: '50x50', class: 'rounded-circle' %></th>
+  <td>
+    <h3 class="small">
+      <%= comment.user.name %>
+    </h3>
+    <div id="js-comment-<%= comment.id %>">
+      <%= simple_format(comment.text) %>
+    </div>
+
+    <div><%= l(comment.updated_at, format: :default) %></div>
+
+    <% if current_user && current_user.own?(comment) %>
+      <td class="action">
+        <ul class="list-inline d-flex flex-column align-items-end">
+          <li class="list-inline-item m-0">
+            <%=
+              link_to edit_route_comment_path(comment.route, comment),
+                      data: {
+                        'bs-toggle': "modal",
+                        'bs-target': "#js-comment-form-modal"
+                        },
+                      remote: true do
+            %>
+              <%= icon('fa', 'pen') %>
+              <%= t('defaults.edit') %>
+            <% end %>
+          </li>
+          <li class="list-inline-item">
+            <%=
+              link_to route_comment_path(comment.route, comment),
+                      method: :delete,
+                      data: { confirm: t('defaults.delete_confirm') },
+                      remote: true do
+            %>
+              <%= icon('fas', 'trash') %>
+              <%= t('defaults.destroy') %>
+            <% end %>
+          </li>
+        </ul>
+      </td>
+    <% end %>
+  </td>
+</tr>

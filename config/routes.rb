@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resource :profiles, only: %i[show edit update]
-  resources :routes, only: %i[index show]
+  resources :routes, only: %i[index show] do
+    resources :comments, only: %i[index new create edit update destroy]
+  end
   resources :maps, only: %i[index show]
 
   get 'login' => 'user_sessions#new', :as => :login

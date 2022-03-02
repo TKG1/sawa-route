@@ -1,12 +1,7 @@
 <div class="container">
   <div class="form-login card border mt-5 mb-5">
     <div class="card-body">
-      <% if current_user.nil?%>
-        <%= render 'form' %>
-        <%= render 'shared/google_login_form' %>
-      <% else %>
-        <%= render 'shared/logout_form' %>
-      <% end %>
+      <%= current_user.nil? ? (render 'form') : (render 'shared/logout_form') %>
     </div>
   </div>
 </div>

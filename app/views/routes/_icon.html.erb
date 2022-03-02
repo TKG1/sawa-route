@@ -1,0 +1,10 @@
+<% case column %>
+<% when Route.human_attribute_name(:time) %>
+  <%= icon('far', 'clock') %>
+<% when Route.human_attribute_name(:schedule) %>
+  <%= icon('far', 'calendar-alt') %>
+<% when Route.human_attribute_name(:length) %>
+  <%= icon('fas', 'hiking') %>
+<% when Route.human_attribute_name(:level) %>
+  <%= icon('fas', 'exclamation-triangle') %>
+<% end %>

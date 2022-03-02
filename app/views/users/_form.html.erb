@@ -1,6 +1,8 @@
 <div class="form-login">
   <%= form_with model: @user, local: true do |f| %>
-    <h1 class="h4 mb-3 fw-normal text-center">新規アカウントを登録する</h1>
+    <h1 class="h4 mb-3 fw-normal text-center">
+      <%= t('.create_account') %>
+    </h1>
     <%= render 'shared/error_messages', object: f.object %>
 
     <div class="form-group">
@@ -21,4 +23,6 @@
     </div>
     <%= f.submit t('defaults.register'), class: 'w-100 btn btn-primary mt-3' %>
   <% end %>
+
+  <%= render 'shared/google_login_form' %>
 </div>

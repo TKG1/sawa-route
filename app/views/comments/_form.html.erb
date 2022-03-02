@@ -1,0 +1,14 @@
+<div class="row mb-3">
+  <div class="col-lg-12">
+    <%= form_with model: comment, url: [route, comment], local: current_user.blank?  do |f| %>
+      <div class="form-group">
+        <%= f.label :text, t('.post_comment'), class: 'fs-3', for: 'js-comment-text' %>
+        <%= f.text_area :text, class: 'form-control mb-3', id: 'js-comment-text', rows: 6 %>
+      </div>
+      <%= f.submit t('defaults.post'), class: 'btn btn-primary' %>
+      <button type="button" class="btn btn-secondary" id="js-close-modal" data-bs-dismiss="modal">
+        <%= t('defaults.cancel') %>
+      </button>
+    <% end %>
+  </div>
+</div>
