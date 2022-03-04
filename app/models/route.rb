@@ -4,6 +4,7 @@ class Route < ApplicationRecord
   has_many :users
   has_many :comments, dependent: :destroy
   has_many :commented_users, through: :comments, source: :user
+  has_many :favorites, dependent: :destroy
 
   mount_uploader :image, Route::ImageUploader
 

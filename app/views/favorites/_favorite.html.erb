@@ -1,0 +1,3 @@
+<%= link_to route_favorites_path(route), class: 'favorite-button', id: "js-favorite-for-route-#{route.id}", method: :post, remote: true do %>
+  <%= icon('far', 'bookmark', class: 'fa-2x') %>
+<% end %>

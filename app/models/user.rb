@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :routes
   has_many :comments, dependent: :destroy
   has_many :commented_routes, through: :comments, source: :route
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_routes, through: :favorites, source: :route
 
   mount_uploader :avatar, AvatarUploader
 
@@ -21,5 +23,9 @@ class User < ApplicationRecord
 
   def own?(object)
     id == object.user_id
+  end
+
+  def favorite?(route)
+    route.favorites.pluck(:user_id).include?(id)
   end
 end

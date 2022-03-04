@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_01_082734) do
+ActiveRecord::Schema.define(version: 2022_03_03_113622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2022_03_01_082734) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["route_id"], name: "index_comments_on_route_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "route_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["route_id", "user_id"], name: "index_favorites_on_route_id_and_user_id", unique: true
+    t.index ["route_id"], name: "index_favorites_on_route_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "maps", force: :cascade do |t|
@@ -102,6 +112,8 @@ ActiveRecord::Schema.define(version: 2022_03_01_082734) do
 
   add_foreign_key "comments", "routes"
   add_foreign_key "comments", "users"
+  add_foreign_key "favorites", "routes"
+  add_foreign_key "favorites", "users"
   add_foreign_key "maps", "routes"
   add_foreign_key "mountains", "prefectures"
   add_foreign_key "routes", "mountains"

@@ -5,7 +5,14 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <h1><%= @route.name %></h1>
+      <div class="d-flex align-items-center">
+        <h1><%= @route.name %></h1>
+        <% if current_user.present? %>
+          <div class="ms-3">
+            <%= current_user.favorite?(@route) ? (render 'favorites/unfavorite', route: @route) : (render 'favorites/favorite', route: @route) %>
+          </div>
+        <% end %>
+      </div>
       <ul class="list-inline mt-3 mb-0">
         <li class="list-inline-item">
           <%= icon('fas', 'map-marked-alt') %>
@@ -41,6 +48,8 @@
         <% end %>
       </div>
     </div>
+
+    <%= link_to t('.search_yamap'), "https://yamap.com/search/activities?type=31&keyword=#{URI.encode_www_form_component(@route.mountain.name)}" %>
 
     <div class="col-md-6 mt-5">
       <%= render 'tab' %>

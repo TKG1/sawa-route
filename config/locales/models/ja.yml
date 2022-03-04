@@ -8,6 +8,8 @@ ja:
       prefecture: 都道府県
       route: ルート
       comment: コメント
+      favorite: お気に入り
+
     attributes:
         user:
           email: メールアドレス
@@ -31,6 +33,7 @@ ja:
           image: 画像
         comment:
           text: 文字
+
   attributes:
     id: ID
     name: 名前

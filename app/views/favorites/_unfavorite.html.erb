@@ -1,0 +1,3 @@
+<%= link_to route_favorites_path(route), id: "js-unfavorite-for-route-#{route.id}", class: 'unfavorite-button', method: :delete, remote: true do %>
+  <%= icon('fas', 'bookmark', class: 'fa-2x') %>
+<% end %>
