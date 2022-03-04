@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Routes', type: :system do
+  let(:user) { create(:user) }
   let(:route) { create(:route) }
   let(:map) { create(:map, route_id: route.id) }
 
@@ -75,7 +76,7 @@ RSpec.describe 'Routes', type: :system do
     end
   end
 
-  context 'without route data' do
+  context 'without a route data' do
     it 'does not display route list' do
       visit root_path
       click_link 'ルート一覧'
@@ -85,7 +86,7 @@ RSpec.describe 'Routes', type: :system do
   end
 
   describe 'after login' do
-    let(:user) { create(:user) }
+    let!(:favorite) { create(:favorite, user: user, route: route) }
 
     before { login_as(user) }
 
@@ -155,6 +156,19 @@ RSpec.describe 'Routes', type: :system do
         find('#map').click
         expect(page).to have_selector '#map'
         expect(current_path).to eq map_path(map)
+      end
+
+      it "displays user's favorite routes" do
+        visit favorite_routes_path
+        within "#route-list-#{favorite.route.id}" do
+          expect(page).to have_content favorite.route.name
+          expect(page).to have_content favorite.route.level
+          expect(page).to have_content favorite.route.schedule
+          expect(page).to have_content favorite.route.time
+          expect(page).to have_content favorite.route.mountain.name
+          expect(page).to have_selector "img[src$='mountain.png']"
+          expect(page).to have_content favorite.route.mountain.prefecture.name
+        end
       end
     end
   end

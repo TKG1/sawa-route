@@ -8,4 +8,8 @@ class RoutesController < ApplicationController
     @comment = Comment.new
     @comments = @route.comments.includes(:route, :user).order(updated_at: :asc)
   end
+
+  def favorite
+    @routes = current_user.favorite_routes.includes(mountain: :prefecture)
+  end
 end

@@ -1,0 +1,9 @@
+<div class="container mt-4">
+  <div class="row g-3">
+    <% if @routes.present? %>
+      <%= render @routes %>
+    <% else %>
+      <p><%= t('.no_favorite_routes') %></p>
+    <% end %>
+  </div>
+</div>

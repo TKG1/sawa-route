@@ -20,6 +20,7 @@
         <% end %>
         <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
           <li><%= link_to t('defaults.profile'), profiles_path, class: 'dropdown-item' %></li>
+          <li><%= link_to Favorite.model_name.human, favorite_routes_path, class: 'dropdown-item' %></li>
           <li><hr class="dropdown-divider" /></li>
           <li><%= link_to t('defaults.logout'), logout_path, method: :delete, class: 'dropdown-item' %></li>
         </ul>

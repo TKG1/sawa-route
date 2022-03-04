@@ -24,6 +24,8 @@ ja:
     tab:
       no_comment: コメントがありません
       create_comment: コメントをする
+    favorite:
+      no_favorite_routes: お気に入りしたルートがありません
   comments:
     form:
       post_comment: コメントを投稿する

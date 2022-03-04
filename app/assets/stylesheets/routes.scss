@@ -1,9 +1,26 @@
 .route-list {
-  text-decoration: none;
-  p {
-    color: black
+  position: relative;
+  .route-link {
+    text-decoration: none;
+    p {
+      color: black
+    }
+  }
+  .favorite-button {
+    position: absolute;
+    top: 5%;
+    left: 83%;
+    margin: 0;
+  }
+
+  .unfavorite-button {
+    position: absolute;
+    top: 5%;
+    left: 83%;
+    margin: 0;
   }
 }
+
 
 img {
   object-fit: cover;
