@@ -1,0 +1,11 @@
+@import 'home.scss';
+@import 'user_sessions';
+@import 'routes';
+@import 'comments';
+
+body {
+  margin: 0;
+  header {
+    background: whitesmoke;
+  }
+}

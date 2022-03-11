@@ -11,10 +11,10 @@ import 'jquery'
 import 'bootstrap'
 import 'bootstrap/scss/bootstrap.scss'
 
-import 'mapbox-gl/dist/mapbox-gl.css'
 import '@fortawesome/fontawesome-free/js/all'
 
-import './application.scss'
+import 'mapbox-gl/dist/mapbox-gl.css'
+import '../stylesheets/application'
 
 const images = require.context('../images', true)
 const imagePath = (name) => images(name, true)
