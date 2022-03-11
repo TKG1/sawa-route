@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   post 'login' => 'user_sessions#create'
   delete 'logout' => 'user_sessions#destroy', :as => :logout
 
+  post "oauth/callback" => "oauths#callback"
   get 'oauth/callback' => 'oauths#callback'
   post 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
 
