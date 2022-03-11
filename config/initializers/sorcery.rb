@@ -158,13 +158,15 @@ Rails.application.config.sorcery.configure do |config|
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
   # config.auth0.site = "https://example.auth0.com"
   #
-  unless Rails.env.test?
-    config.google.key = Rails.application.credentials.google[:client_id]
-    config.google.secret = Rails.application.credentials.google[:client_secret]
+  config.google.key = Rails.application.credentials.google[:client_id]
+  config.google.secret = Rails.application.credentials.google[:client_secret]
+  if Rails.env.production?
+    config.google.callback_url = "https://sawanobori.herokuapp.com/callback?provider=google"
+  else
     config.google.callback_url = "http://localhost:3000/oauth/callback?provider=google"
-    config.google.user_info_mapping = {:email => "email", :name => "name", :remote_avatar_url => "picture"}
-    config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   end
+  config.google.user_info_mapping = {:email => "email", :name => "name", :remote_avatar_url => "picture"}
+  config.google.scope = "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
   #
   # For Microsoft Graph, the key will be your App ID, and the secret will be your app password/public key.
   # The callback URL "can't contain a query string or invalid special characters"
