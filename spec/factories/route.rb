@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :route do
     name { "route" }
     description { "test" }
-    level { 0 }              # enum level: { '入門': 0, '初級': 1, '中級': 2, '上級': 3 }
-    schedule { 0 }           # enum schedule: { '日帰り': 0, '1泊2日': 1, '2泊3日': 2}
+    level { 0 }              # enum level: { grade1: 0, grade2: 1, grade3: 2, grade3_up: 3, grade4: 4 }
+    schedule { 0 }           # enum schedule: { one_day: 0, two_days: 1, three_days: 2 }
     time { '01:30' }
     length { '10' }
     mountain

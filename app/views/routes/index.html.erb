@@ -1,9 +1,99 @@
-<div class="container mt-4">
-  <div class="row g-3">
-    <% if @routes.present? %>
-      <%= render @routes %>
-    <% else %>
-      <p><%= t('.no_routes') %></p>
-    <% end %>
+<div class="container-md mt-4 mb-4">
+  <div class="row mt-4 mb-4">
+    <div class="col-xl-3 col-md-12 col-12">
+      <div class="search-widget pt-3 pb-3 mb-3">
+        <div class="panel-heading text-center">
+          <h3 class="panel-title">詳細検索</h3>
+        </div>
+        <div class="panel-body mt-3">
+          <%= search_form_for @q, class: 'form-inline' do |f| %>
+            <div class="row justify-content-center mt-1">
+              <div class="col-10">
+                <%= f.search_field :names_cont, class: 'form-control', placeholder: 'キーワード' %>
+              </div>
+
+              <div class="col-10 mt-2">
+                <%= f.select :prefecture_name_eq, Prefecture.all.pluck(:name), { include_blank: '都道府県を選択' }, class: 'form-select' %>
+              </div>
+            </div>
+
+            <div class="row justify-content-center mt-4">
+              <div class="col-xl-10 col-12 text-center">
+                <h5><%= Route.human_attribute_name(:level) %></h5>
+              </div>
+              <div class="col-xl-5 col-lg-2 col-3">
+                <div class="form-check">
+                  <%= f.check_box :level_eq_any, { multiple: true, class: 'checkbox' }, 0, '' %>
+                  <%= f.label :level_eq_any_0, Route.levels_i18n[:grade1] %>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-2 col-3">
+                <div class="form-check">
+                  <%= f.check_box :level_eq_any, { multiple: true, class: 'checkbox' }, 1, '' %>
+                  <%= f.label :level_eq_any_1, Route.levels_i18n[:grade2] %>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-2 col-3">
+                <div class="form-check">
+                  <%= f.check_box :level_eq_any, { multiple: true, class: 'checkbox' }, 2, '' %>
+                  <%= f.label :level_eq_any_2, Route.levels_i18n[:grade3] %>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-2 col-3">
+                <div class="form-check">
+                  <%= f.check_box :level_eq_any, { multiple: true, class: 'checkbox' }, 3, '' %>
+                  <%= f.label :level_eq_any_3, Route.levels_i18n[:grade3_up] %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center mt-4">
+              <div class="col-xl-10 col-12 text-center">
+                <h5><%= Route.human_attribute_name(:schedule) %></h5>
+              </div>
+              <div class="col-xl-5 col-lg-2 col-md-3 col-4">
+                <div class="form-check">
+                  <%= f.check_box :schedule_eq_any, { multiple: true, class: 'checkbox' }, 0, '' %>
+                  <%= f.label :schedule_eq_any_0, Route.schedules_i18n[:one_day] %>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-2 col-md-3 col-4">
+                <div class="form-check">
+                  <%= f.check_box :schedule_eq_any, { multiple: true, class: 'checkbox' }, 1, '' %>
+                  <%= f.label :schedule_eq_any_1, Route.schedules_i18n[:two_days] %>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-2 col-md-3 col-4">
+                <div class="form-check">
+                  <%= f.check_box :schedule_eq_any, { multiple: true, class: 'checkbox' }, 2, '' %>
+                  <%= f.label :schedule_eq_any_2, Route.schedules_i18n[:three_days] %>
+                </div>
+              </div>
+              <div class="col-xl-5 col-lg-2 col-md-3 col-4"></div>
+            </div>
+
+            <div class="row justify-content-center mt-3">
+              <div class="col-xl-10 col-3">
+                <%= f.submit '検索', class: 'btn btn-primary w-100' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-9 col-md-12 col-12">
+      <div class="row">
+        <% if @routes.present? %>
+          <div class="text-end">
+            <%= sort_link(@q, :level) %>
+          </div>
+          <%= render @routes %>
+          <%= paginate @routes %>
+        <% else %>
+          <p><%= t('.no_routes') %></p>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>

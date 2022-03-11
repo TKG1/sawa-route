@@ -1,5 +1,5 @@
 $('#comment-<%= @comment.id %>').remove();
 
-if ($('#js-comment-list').find('tr').length === 0) {
+if ($('#js-comment-list').find('.comment-text').length === 0) {
   $('#js-comment').prepend('<p id="js-no-comment">コメントがありません</p>')
 }

@@ -31,6 +31,21 @@
 
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="js-comment" role="tabpanel" aria-labelledby="comment-tab">
+    <div class="row">
+      <div class="col mt-3 mb-3">
+        <%=
+          link_to t('.create_comment'),
+                  new_route_comment_path(@route),
+                  data: {
+                    'bs-toggle': 'modal',
+                    'bs-target': '#js-comment-form-modal',
+                  },
+                  class: 'btn btn-primary',
+                  remote: true
+        %>
+      </div>
+    </div>
+
     <% if @comments.present? %>
       <%= render 'comments/comments', comments: @comments %>
     <% else %>
@@ -38,17 +53,6 @@
         <%= t('.no_comment') %>
       </p>
     <% end %>
-
-    <%=
-      link_to t('.create_comment'),
-              new_route_comment_path(@route),
-              data: {
-                'bs-toggle': 'modal',
-                'bs-target': '#js-comment-form-modal',
-              },
-              class: 'btn btn-primary',
-              remote: true
-    %>
 
     <div class="modal fade" id="js-comment-form-modal" data-bs-backdrop="static" data-bs-keyboard="false">
       <div class="modal-dialog modal-dialog-centered">
@@ -60,5 +64,11 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane fade" id="picture" role="tabpanel" aria-labelledby="picture-tab">...</div>
+  <div class="tab-pane fade" id="picture" role="tabpanel" aria-labelledby="picture-tab">
+    <div class="row">
+      <div class="col mt-3 mb-3">
+        <%= link_to '写真を投稿する(予定)', '#', class: 'btn btn-primary', remote: true %>
+      </div>
+    </div>
+  </div>
 </div>

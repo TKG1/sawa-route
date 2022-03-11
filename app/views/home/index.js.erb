@@ -1,0 +1,4 @@
+$('.page-item').removeClass('active');
+$('.page-item:contains(<%= params[:page] || 1 %>)').addClass('active');
+$('#js-pagination').empty()
+$('#js-pagination').append("<%= j(render partial: 'routes/route', collection: @routes, locals: { home: true, item: 3 }) %>");

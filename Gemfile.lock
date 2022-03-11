@@ -111,6 +111,8 @@ GEM
     debug_inspector (1.1.0)
     diff-lcs (1.5.0)
     digest (3.1.0)
+    enum_help (0.0.18)
+      activesupport (>= 3.0.0)
     erubi (1.10.0)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
@@ -186,6 +188,14 @@ GEM
     msgpack (1.4.5)
     multi_json (1.15.0)
     multi_xml (0.6.0)
+    net-imap (0.2.3)
+      digest
+      net-protocol
+      strscan
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
     net-protocol (0.1.2)
       io-wait
       timeout
@@ -345,6 +355,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
+    strscan (3.0.1)
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.2.0)
@@ -383,12 +394,16 @@ DEPENDENCIES
   byebug
   capybara
   carrierwave (~> 2.0)
+  enum_help
   factory_bot_rails
   font-awesome-sass (~> 5.15.1)
   gon (~> 6.2)
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.3)
   mini_magick
+  net-imap
+  net-pop
   net-smtp
   omniauth-rails_csrf_protection (~> 1.0)
   pg (~> 1.1)
@@ -397,6 +412,7 @@ DEPENDENCIES
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.4, >= 6.1.4.6)
   rails-i18n (~> 6.0)
+  ransack
   rspec-rails (~> 5.0.0)
   rubocop (~> 1.25)
   rubocop-rails

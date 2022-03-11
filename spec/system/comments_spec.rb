@@ -47,7 +47,7 @@ RSpec.describe 'Comments', type: :system do
       within "#comment-#{new_comment.id}" do
         expect(page).to have_content 'test_test'
         expect(page).to have_content new_comment.user.name
-        expect(page).to have_content I18n.l(new_comment.updated_at, format: :default)
+        expect(page).to have_content I18n.l(new_comment.created_at, format: :default)
         expect(page).to have_selector "img[src$='avatar.png']"
         expect(current_path).to eq route_path(comment.route)
       end
@@ -73,7 +73,7 @@ RSpec.describe 'Comments', type: :system do
       within "#comment-#{comment.id}" do
         expect(page).to have_content 'test1234'
         expect(page).to have_content comment.user.name
-        expect(page).to have_content I18n.l(comment.updated_at, format: :default)
+        expect(page).to have_content I18n.l(comment.created_at, format: :default)
         expect(page).to have_selector "img[src$='avatar.png']"
         expect(current_path).to eq route_path(comment.route)
       end

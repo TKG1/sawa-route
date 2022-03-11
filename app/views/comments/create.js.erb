@@ -3,7 +3,7 @@ $('#error_messages').remove()
   $('#js-comment-form').prepend("<%= j(render('shared/error_messages', object: @comment)) %>")
 <% else %>
   if ($('#js-no-comment').length !== 0) {
-    $('#js-no-comment').replaceWith("<%= j(render('comments/comments', comments: @comment)) %>")
+    $('#js-no-comment').replaceWith("<%= j(render('comments/comment', comment: @comment)) %>")
   } else {
     $('#js-comment-list').append("<%= j(render('comments/comment', comment: @comment)) %>")
   }

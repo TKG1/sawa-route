@@ -64,8 +64,10 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
-# error: cannot load such file -- net/smtp
+# error: cannot load such file -- net/smtp & pop & imap
 gem 'net-smtp', require: false
+gem 'net-pop', require: false
+gem 'net-imap', require: false
 
 # OAuth
 # gem 'omniauth', '~> 2.0'
@@ -93,3 +95,12 @@ gem 'gon', '~> 6.2'
 
 # Admin
 gem 'activeadmin'
+
+# search
+gem 'ransack'
+
+# enum
+gem 'enum_help'
+
+# kaminari
+gem 'kaminari'

@@ -42,8 +42,8 @@ RSpec.describe 'Admin::Routes', type: :system do
       expect(page).to have_content 'test_route'
       expect(page).to have_content 'test_route_description'
       expect(page).to have_content '08:44'
-      expect(page).to have_content '日帰り'
-      expect(page).to have_content '入門'
+      expect(page).to have_content 'one_day'
+      expect(page).to have_content 'grade1'
       expect(page).to have_content 10
       expect(current_path).to eq admin_route_path(new_route)
     end
@@ -56,8 +56,8 @@ RSpec.describe 'Admin::Routes', type: :system do
       find("option[value='#{route.mountain.id}']").select_option
       fill_in 'route_name', with: 'test_route'
       fill_in 'route_description', with: 'test_route_description'
-      select '1泊2日', from: '予定'
-      select '中級', from: '難易度'
+      select 'Two days', from: '予定'
+      select 'Grade2', from: 'グレード'
       fill_in 'route_time', with: '08:44'
       fill_in 'route_length', with: 10
       click_button 'ルートを更新'
@@ -66,8 +66,8 @@ RSpec.describe 'Admin::Routes', type: :system do
       expect(page).to have_content 'test_route'
       expect(page).to have_content 'test_route_description'
       expect(page).to have_content '08:44'
-      expect(page).to have_content '1泊2日'
-      expect(page).to have_content '中級'
+      expect(page).to have_content 'two_days'
+      expect(page).to have_content 'grade2'
       expect(page).to have_content 10
       expect(current_path).to eq admin_route_path(route)
     end

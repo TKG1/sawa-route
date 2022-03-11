@@ -1,5 +1,7 @@
 class Route < ApplicationRecord
   belongs_to :mountain
+  has_one :prefecture, through: :mountain
+
   has_one :map
   has_many :users
   has_many :comments, dependent: :destroy
@@ -8,8 +10,10 @@ class Route < ApplicationRecord
 
   mount_uploader :image, Route::ImageUploader
 
-  enum schedule: { '日帰り': 0, '1泊2日': 1, '2泊3日': 2 }
-  enum level: { '入門': 0, '初級': 1, '中級': 2, '上級': 3 }
+  enum schedule: { one_day: 0, two_days: 1, three_days: 2 }
+  enum level: { grade1: 0, grade2: 1, grade3: 2, grade3_up: 3, grade4: 4 }
 
   validates :name, :description, :schedule, :level, :time, :length, presence: true
+
+  ransack_alias :names, :name_or_mountain_name_or_mountain_prefecture_name
 end

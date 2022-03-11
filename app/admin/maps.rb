@@ -1,5 +1,5 @@
 ActiveAdmin.register Map do
-  permit_params :latitude, :longitude, :route_id
+  permit_params :latitude, :longitude, :zoom, :route_id
 
   controller do
     def create
