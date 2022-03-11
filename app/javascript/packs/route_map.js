@@ -39,7 +39,8 @@ map.on('click', (event) => {
   const popup = new mapboxgl.Popup({ offset: [0, -15] }).setLngLat(feature.geometry.coordinates)
   const googleMap = `
                       <a class="mt-2" href="https://www.google.com/maps/search/?api=1&query=${feature.geometry.coordinates[1]},${feature.geometry.coordinates[0]}">
-                        <i class="fas fa-map-marked-alt">  GoogleMap</i>
+                        <i class="fas fa-map-marked-alt"></i>
+                        GoogleMap
                       </a>
                     `
 
