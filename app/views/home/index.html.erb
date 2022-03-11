@@ -47,11 +47,13 @@
 </div>
 
 <div class="container-sm mt-5">
-  <h4 class="mb-3">周辺のルートを表示(予定)</h4>
-  <div class="row text-center" id="js-pagination">
-    <%= render partial: 'routes/route', collection: @routes, locals: { home: true, item: 3 } %>
-  </div>
-  <%= paginate @routes, remote: true %>
+  <% if @route.present? %>
+    <h4 class="mb-3">周辺のルートを表示(予定)</h4>
+    <div class="row text-center" id="js-pagination">
+      <%= render partial: 'routes/route', collection: @routes, locals: { home: true, item: 3 } %>
+    </div>
+    <%= paginate @routes, remote: true %>
+  <% end %>
 </div>
 
 
