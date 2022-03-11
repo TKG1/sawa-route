@@ -1,0 +1,12 @@
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../stylesheets/home';
+@import '../stylesheets/user_sessions';
+@import '../stylesheets/routes';
+@import '../stylesheets/comments';
+
+body {
+  margin: 0;
+  header {
+    background: whitesmoke;
+  }
+}

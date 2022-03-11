@@ -16,8 +16,8 @@ RSpec.describe 'Routes', type: :system do
         expect(page).to have_selector "#route-list-#{route.id}"
         within "#route-list-#{route.id}" do
           expect(page).to have_content route.name
-          expect(page).to have_content route.level
-          expect(page).to have_content route.schedule
+          expect(page).to have_content route.level_i18n
+          expect(page).to have_content route.schedule_i18n
           expect(page).to have_content route.time
           expect(page).to have_content route.mountain.name
           expect(page).to have_selector "img[src$='mountain.png']"
@@ -32,8 +32,8 @@ RSpec.describe 'Routes', type: :system do
         expect(page).to have_selector "#route-list-#{another_route.id}"
         within "#route-list-#{route.id}" do
           expect(page).to have_content route.name
-          expect(page).to have_content route.level
-          expect(page).to have_content route.schedule
+          expect(page).to have_content route.level_i18n
+          expect(page).to have_content route.schedule_i18n
           expect(page).to have_content route.time
           expect(page).to have_content route.mountain.name
           expect(page).to have_selector "img[src$='mountain.png']"
@@ -41,8 +41,8 @@ RSpec.describe 'Routes', type: :system do
         end
         within "#route-list-#{another_route.id}" do
           expect(page).to have_content another_route.name
-          expect(page).to have_content another_route.level
-          expect(page).to have_content another_route.schedule
+          expect(page).to have_content another_route.level_i18n
+          expect(page).to have_content another_route.schedule_i18n
           expect(page).to have_content another_route.time
           expect(page).to have_content another_route.mountain.name
           expect(page).to have_selector "img[src$='mountain.png']"
@@ -56,8 +56,8 @@ RSpec.describe 'Routes', type: :system do
         find("#route-list-#{route.id}").click
         expect(page).to have_content route.name
         expect(page).to have_content route.description
-        expect(page).to have_content route.level
-        expect(page).to have_content route.schedule
+        expect(page).to have_content route.level_i18n
+        expect(page).to have_content route.schedule_i18n
         expect(page).to have_content route.time
         expect(page).to have_content route.length
         expect(page).to have_content route.mountain.name
@@ -100,8 +100,8 @@ RSpec.describe 'Routes', type: :system do
         expect(page).to have_selector "#route-list-#{route.id}"
         within "#route-list-#{route.id}" do
           expect(page).to have_content route.name
-          expect(page).to have_content route.level
-          expect(page).to have_content route.schedule
+          expect(page).to have_content route.level_i18n
+          expect(page).to have_content route.schedule_i18n
           expect(page).to have_content route.time
           expect(page).to have_content route.mountain.name
           expect(page).to have_selector "img[src$='mountain.png']"
@@ -116,8 +116,8 @@ RSpec.describe 'Routes', type: :system do
         expect(page).to have_selector "#route-list-#{another_route.id}"
         within "#route-list-#{route.id}" do
           expect(page).to have_content route.name
-          expect(page).to have_content route.level
-          expect(page).to have_content route.schedule
+          expect(page).to have_content route.level_i18n
+          expect(page).to have_content route.schedule_i18n
           expect(page).to have_content route.time
           expect(page).to have_content route.mountain.name
           expect(page).to have_selector "img[src$='mountain.png']"
@@ -125,8 +125,8 @@ RSpec.describe 'Routes', type: :system do
         end
         within "#route-list-#{another_route.id}" do
           expect(page).to have_content another_route.name
-          expect(page).to have_content another_route.level
-          expect(page).to have_content another_route.schedule
+          expect(page).to have_content another_route.level_i18n
+          expect(page).to have_content another_route.schedule_i18n
           expect(page).to have_content another_route.time
           expect(page).to have_content another_route.mountain.name
           expect(page).to have_selector "img[src$='mountain.png']"
@@ -140,8 +140,8 @@ RSpec.describe 'Routes', type: :system do
         find("#route-list-#{route.id}").click
         expect(page).to have_content route.name
         expect(page).to have_content route.description
-        expect(page).to have_content route.level
-        expect(page).to have_content route.schedule
+        expect(page).to have_content route.level_i18n
+        expect(page).to have_content route.schedule_i18n
         expect(page).to have_content route.time
         expect(page).to have_content route.length
         expect(page).to have_content route.mountain.name
@@ -162,8 +162,8 @@ RSpec.describe 'Routes', type: :system do
         visit favorite_routes_path
         within "#route-list-#{favorite.route.id}" do
           expect(page).to have_content favorite.route.name
-          expect(page).to have_content favorite.route.level
-          expect(page).to have_content favorite.route.schedule
+          expect(page).to have_content favorite.route.level_i18n
+          expect(page).to have_content favorite.route.schedule_i18n
           expect(page).to have_content favorite.route.time
           expect(page).to have_content favorite.route.mountain.name
           expect(page).to have_selector "img[src$='mountain.png']"

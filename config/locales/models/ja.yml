@@ -27,7 +27,7 @@ ja:
         route:
           description: 説明
           schedule: 予定
-          level: 難易度
+          level: グレード
           time: 時間
           length: 距離
           image: 画像
@@ -39,3 +39,16 @@ ja:
     name: 名前
     created_at: 作成日
     updated_at: 更新日
+
+  enums:
+    route:
+      level:
+        grade1: 1級
+        grade2: 2級
+        grade3: 3級
+        grade3_up: 3級上
+        grade4: 4級
+      schedule:
+        one_day: 日帰り
+        two_days: 1泊2日
+        three_days: 2泊3日

@@ -21,6 +21,8 @@ const map = new mapboxgl.Map({
   zoom: 5,
 })
 
+map.addControl(new mapboxgl.NavigationControl())
+
 map.on('click', (event) => {
   const features = map.queryRenderedFeatures(event.point, {
     layers: ['symbols'],
@@ -33,10 +35,14 @@ map.on('click', (event) => {
   const popup = new mapboxgl.Popup({ offset: [0, -15] })
     .setLngLat(feature.geometry.coordinates)
     .setHTML(
-      `<p class="m-0"><span class="badge bg-dark me-1"> ${feature.properties.region}</span>${feature.properties.placeName}</p>
-      <p class="m-1">${feature.properties.river}</p>
-      <p class="m-1">${feature.properties.route}</p>
-      <a href="routes/:id?name=${feature.properties.route}">詳細</a>
+      `
+        <p class="m-auto">
+          <span class="badge bg-dark me-1">${feature.properties.region}</span>
+          <span class="badge bg-success me-1">${feature.properties.placeName}</span>
+          <span class="badge bg-primary me-1">${feature.properties.river}</span>
+        </p>
+        <h5 class="m-2">${feature.properties.route}</h5>
+        <a class="btn btn-primary w-100 p-0" href="routes/:id?name=${feature.properties.route}" style="font-size:12px;">詳細</a>
       `
     )
     .addTo(map)

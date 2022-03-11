@@ -5,8 +5,8 @@ ActiveAdmin.register Route do
     selectable_column
     id_column
     column :name
-    column :schedule
-    column :level
+    column :schedule_i18n
+    column :level_i18n
     column :time
     column :length
     column :mountain

@@ -1,58 +1,80 @@
-<div class="container">
-  <%= image_tag @route.mountain.image_url, height: 300, class: 'w-100 mb-5' %>
-</div>
+<div class="col-lg-12">
+  <div class="detailed-route-content">
+    <div class="container-field">
+      <%= image_tag @route.mountain.image_url, height: 500, class: 'w-100 mb-5' %>
+    </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="d-flex align-items-center">
-        <h1><%= @route.name %></h1>
-        <% if current_user.present? %>
-          <div class="ms-3">
-            <%= current_user.favorite?(@route) ? (render 'favorites/unfavorite', route: @route) : (render 'favorites/favorite', route: @route) %>
+    <div class="container-sm w-75">
+      <div class="row justify-content-center">
+        <div class="col-12">
+          <div class="d-flex align-items-center">
+            <h1><%= @route.name %></h1>
+            <% if current_user.present? %>
+              <div class="ms-3">
+                <%= current_user.favorite?(@route) ? (render 'favorites/unfavorite', route: @route) : (render 'favorites/favorite', route: @route) %>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-      <ul class="list-inline mt-3 mb-0">
-        <li class="list-inline-item">
-          <%= icon('fas', 'map-marked-alt') %>
-          <%= @route.mountain.prefecture.name %>
-        </li>
-        <li class="list-inline-item">
-          <%= icon('fas', 'mountain') %>
-          <%= @route.mountain.name %>
-        </li>
-      </ul>
-      <p class="mt-3"><%= @route.description %></p>
-    </div>
+          <ul class="list-inline mt-3 mb-3">
+            <li class="list-inline-item">
+              <%= icon('fas', 'map-marked-alt') %>
+              <%= @route.mountain.prefecture.name %>
+            </li>
+            <li class="list-inline-item">
+              <%= icon('fas', 'mountain') %>
+              <%= @route.mountain.name %>
+            </li>
+          </ul>
+        </div>
+        <div class="col-12  border-bottom">
+          <div class="route-description">
+            <p class="pt-3 pb-3 m-0"><%= @route.description %></p>
+          </div>
+        </div>
 
-    <div class="col-md-6">
-      <div class="row service-parts">
-        <%= render 'information', value: @route.time, column: Route.human_attribute_name(:time) %>
-        <%= render 'information', value: @route.schedule, column: Route.human_attribute_name(:schedule) %>
-        <%= render 'information', value: @route.length, column: Route.human_attribute_name(:length) %>
-        <%= render 'information', value: @route.level, column: Route.human_attribute_name(:level) %>
-      </div>
-    </div>
+        <div class="row  border-bottom pb-3">
+          <div class="col-lg-6 col-12 mt-4">
+            <div class="row service-parts">
+              <%= render 'shared/information', value: @route.time, column: Route.human_attribute_name(:time) %>
+              <%= render 'shared/information', value: @route.schedule_i18n, column: Route.human_attribute_name(:schedule) %>
+              <%= render 'shared/information', value: @route.length.to_s + 'km', column: Route.human_attribute_name(:length) %>
+              <%= render 'shared/information', value: @route.level_i18n, column: Route.human_attribute_name(:level) %>
+            </div>
+          </div>
 
-    <div class="col-md-6">
-      <div class="d-flex flex-row-reverse">
-        <%= link_to map_path(@route.map), class: 'map-image', id: 'map' do %>
+          <div class="col-lg-6 col-12 mt-4 align-self-center">
+            <div class="map-image">
+              <%= link_to map_path(@route.map), id: 'map' do %>
+                <%=
+                  image_tag "https://api.mapbox.com/styles/v1/koheikun/cl03dh6ab002i14p5ns80x3fn/static/#{@route.map.longitude},#{@route.map.latitude},#{@route.map.zoom}/500x300?access_token=pk.eyJ1Ijoia29oZWlrdW4iLCJhIjoiY2t6cDdjMTkzNjZpcTJwdHYxbXAxZnl6ayJ9.RaX5Zwhx-cWf_73LpdeliA",
+                            class: 'img-responsive img-thumbnail',
+                            size: '600x280'
+                %>
+                <p class="btn btn-success">
+                  <%= t('.full_map') %>
+                </p>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="tag border-bottom p-3">泳ぎ、登攀の有り無しなどのルート情報をタグで表示する予定</div>
+        <div class="fish border-bottom p-3">釣りができるか、期間、漁業権などの川の情報を載せる予定</div>
+
+        <div class="col-12 mt-5">
           <%=
-            image_tag 'https://api.mapbox.com/styles/v1/koheikun/cl03dh6ab002i14p5ns80x3fn/static/136.71655,35.76698,12/500x300?access_token=pk.eyJ1Ijoia29oZWlrdW4iLCJhIjoiY2t6cDdjMTkzNjZpcTJwdHYxbXAxZnl6ayJ9.RaX5Zwhx-cWf_73LpdeliA',
-                      class: 'img-responsive img-thumbnail'
-          %>
-          <p class="btn btn-success">
-            <%= t('.full_map') %>
-          </p>
-        <% end %>
+              link_to "https://yamap.com/search/activities?type=31&keyword=#{URI.encode_www_form_component(@route.mountain.name)}",
+                      class: 'btn btn-primary' do
+            %>
+            <%= image_pack_tag 'yamap_logo_white_vertical.png', size: '25x25' %>
+            <%= t('.search_yamap') %>
+          <% end %>
+        </div>
+
+        <div class="col-md-12 mt-5">
+          <%= render 'tab' %>
+        </div>
       </div>
-    </div>
-
-    <%= link_to t('.search_yamap'), "https://yamap.com/search/activities?type=31&keyword=#{URI.encode_www_form_component(@route.mountain.name)}" %>
-
-    <div class="col-md-6 mt-5">
-      <%= render 'tab' %>
     </div>
   </div>
 </div>

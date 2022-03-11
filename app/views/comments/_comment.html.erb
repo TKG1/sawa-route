@@ -1,20 +1,32 @@
-<tr id="comment-<%= comment.id %>">
-  <th><%= image_tag comment.user.avatar_url, size: '50x50', class: 'rounded-circle' %></th>
-  <td>
-    <h3 class="small">
-      <%= comment.user.name %>
-    </h3>
-    <div id="js-comment-<%= comment.id %>">
-      <%= simple_format(comment.text) %>
+<div class="col-12 pt-4 border-top" id="comment-<%= comment.id %>">
+  <div class="row">
+    <div class="col-1">
+      <%= image_tag comment.user.avatar_url, size: '50x50', class: 'rounded-circle border' %>
     </div>
 
-    <div><%= l(comment.updated_at, format: :default) %></div>
+    <div class="col-2 align-self-center">
+      <h3 class="small m-0">
+        <%= comment.user.name %>
+      </h3>
+      <h3 class="small pt-1 m-0">
+        <%= l(comment.created_at, format: :default) %>
+      </h3>
+    </div>
+  </div>
 
-    <% if current_user && current_user.own?(comment) %>
-      <td class="action">
-        <ul class="list-inline d-flex flex-column align-items-end">
-          <li class="list-inline-item m-0">
-            <%=
+  <div class="row">
+    <div class="col-12">
+      <div class="comment-text mt-3 rounded-3" id="js-comment-<%= comment.id %>">
+        <%= simple_format(comment.text, class: 'p-2 ps-3 pe-3') %>
+      </div>
+    </div>
+
+    <% if current_user.present? && current_user.own?(comment) %>
+      <div class="row justify-content-end">
+        <div class="col-2">
+          <ul class="list-inline text-end">
+            <li class="list-inline-item m-0">
+              <%=
               link_to edit_route_comment_path(comment.route, comment),
                       data: {
                         'bs-toggle': "modal",
@@ -22,23 +34,27 @@
                         },
                       remote: true do
             %>
-              <%= icon('fa', 'pen') %>
-              <%= t('defaults.edit') %>
-            <% end %>
-          </li>
-          <li class="list-inline-item">
-            <%=
+                <%= icon('fa', 'pen') %>
+                <%= t('defaults.edit') %>
+              <% end %>
+            </li>
+            <li class="list-inline-item">
+              <%=
               link_to route_comment_path(comment.route, comment),
                       method: :delete,
                       data: { confirm: t('defaults.delete_confirm') },
                       remote: true do
             %>
-              <%= icon('fas', 'trash') %>
-              <%= t('defaults.destroy') %>
-            <% end %>
-          </li>
-        </ul>
-      </td>
+                <%= icon('fas', 'trash') %>
+                <%= t('defaults.destroy') %>
+              <% end %>
+            </li>
+          </ul>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </td>
-</tr>
+  </div>
+</div>

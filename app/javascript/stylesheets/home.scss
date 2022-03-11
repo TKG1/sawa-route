@@ -1,0 +1,78 @@
+footer ul {
+  list-style: none;
+}
+
+.slider-area {
+  position: relative;
+  .slider-content {
+    background-color: #f3f3f3;
+    .search-form {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px 0;
+      border: 1px solid #e6e6e6;
+      box-sizing: border-box;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .home-image {
+    position: relative;
+
+    .title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      margin: 0;
+      color: white;
+      z-index: 3;
+    }
+
+    .item img {
+      width: 100%;
+      min-height: 100vh;
+      object-fit: cover;
+      opacity: 0.9;
+    }
+  }
+}
+
+.Welcome-area {
+  background: #f3f3f3 url('../images/sawanobori.png') no-repeat scroll left top;
+  position: relative;
+}
+.Welcome-area .container .Welcome-entry {
+  overflow: hidden;
+  padding: 50px 10px 45px;
+}
+
+.grade-area {
+  background: #f3f3f3 url('../images/item.png') no-repeat scroll left top;
+  position: relative;
+  .page-title h2 {
+    font-weight: 500;
+    font-size: 35px;
+  }
+}
+
+.form-check {
+  label {
+    color: #777;
+    font-size: 17px;
+    font-weight: 300;
+    margin-bottom: 0px;
+    letter-spacing: 1px;
+  }
+  .checkbox {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 22px;
+    height: 22px;
+    border: none;
+    cursor: pointer;
+  }
+}

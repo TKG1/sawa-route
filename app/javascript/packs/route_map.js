@@ -29,17 +29,35 @@ const map = new mapboxgl.Map({
 
 map.on('click', (event) => {
   const features = map.queryRenderedFeatures(event.point, {
-    layers: ['symbols'],
+    layers: ['others', 'information', 'start-and-goal'],
   })
   if (!features.length) {
     return
   }
   const feature = features[0]
 
-  const popup = new mapboxgl.Popup({ offset: [0, -15] })
-    .setLngLat(feature.geometry.coordinates)
-    .setHTML(
-      `<a href="https://www.google.com/maps/search/?api=1&query=${feature.geometry.coordinates[1]},${feature.geometry.coordinates[0]}">GoogleMapで開く</a>`
+  const popup = new mapboxgl.Popup({ offset: [0, -15] }).setLngLat(feature.geometry.coordinates)
+  const googleMap = `
+                      <a class="mt-2" href="https://www.google.com/maps/search/?api=1&query=${feature.geometry.coordinates[1]},${feature.geometry.coordinates[0]}">
+                        <i class="fas fa-map-marked-alt">  GoogleMap</i>
+                      </a>
+                    `
+
+  if (!feature.properties.point) {
+    popup.setHTML(
+      `
+        <p class="badge bg-secondary m-0">${feature.properties.erea}</p><br>
+        ${googleMap}
+      `
     )
-    .addTo(map)
+  } else {
+    popup.setHTML(
+      `
+        <p class="badge bg-secondary m-0">${feature.properties.erea}</p>
+        <p class="m-0">${feature.properties.point}</p>
+        ${googleMap}
+      `
+    )
+  }
+  popup.addTo(map)
 })

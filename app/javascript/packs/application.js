@@ -12,6 +12,12 @@ import 'bootstrap'
 import 'bootstrap/scss/bootstrap.scss'
 
 import 'mapbox-gl/dist/mapbox-gl.css'
+import '@fortawesome/fontawesome-free/js/all'
+
+import './application.scss'
+
+const images = require.context('../images', true)
+const imagePath = (name) => images(name, true)
 
 Rails.start()
 ActiveStorage.start()

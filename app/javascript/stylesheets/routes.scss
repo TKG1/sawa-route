@@ -1,0 +1,86 @@
+/* routes#index */
+.route-list {
+  position: relative;
+  .route-link {
+    text-decoration: none;
+    color: black;
+  }
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .favorite-button {
+    position: absolute;
+    top: 5%;
+    left: 83%;
+    margin: 0;
+  }
+
+  .unfavorite-button {
+    position: absolute;
+    top: 5%;
+    left: 83%;
+    margin: 0;
+  }
+
+  .progress-bar::after {
+    margin: 0;
+    content: '';
+    height: 100%;
+    border-left: 0.2px solid black;
+    border-right: 0.2px solid black;
+  }
+}
+
+.search-widget {
+  background-color: #f3f3f3;
+}
+
+/* routes#show */
+.detailed-route-content {
+  .map-image {
+    position: relative;
+    p {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      margin: 0;
+      opacity: 0.9;
+    }
+  }
+
+  img {
+    object-fit: cover;
+  }
+
+  .service-parts {
+    .fa-exclamation-triangle {
+      color: orange;
+    }
+    .fa-clock {
+      color: olive;
+    }
+    .fa-calendar-alt {
+      color: gray;
+    }
+    .fa-hiking {
+      color: gray;
+    }
+  }
+
+  .fish {
+    background-color: rgb(138, 177, 198);
+  }
+
+  .tag {
+    background-color: rgb(178, 198, 138);
+  }
+}
