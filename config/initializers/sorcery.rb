@@ -161,7 +161,7 @@ Rails.application.config.sorcery.configure do |config|
   config.google.key = Rails.application.credentials.google[:client_id]
   config.google.secret = Rails.application.credentials.google[:client_secret]
   if Rails.env.production?
-    config.google.callback_url = "https://sawanobori.herokuapp.com/callback?provider=google"
+    config.google.callback_url = "https://sawanobori.herokuapp.com/oauth/callback?provider=google"
   else
     config.google.callback_url = "http://localhost:3000/oauth/callback?provider=google"
   end
